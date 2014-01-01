@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Ember Starter Kit</title>
+  <% if @env is 'development': %>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+  <% else: %>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <% end %>
+  <!-- build:css css/main.css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endbuild -->
+</head>
+<body>
+
+  <!-- build:js js/components.js -->
+  <script src="bower_components/jquery/jquery.js"></script>
+  <script src="bower_components/handlebars/handlebars.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <!-- endbuild -->
+  <% if @env is 'development': %>
+    <script src="bower_components/ember/ember.js"></script>
+  <% else: %>
+    <script src="bower_components/ember/ember.min.js"></script>
+  <% end %>
+  <!-- build:js js/main.js -->
+  <script src="js/templates.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/routes/index.js"></script>
+  <!-- endbuild -->
+  <% if @env is 'development': %>
+    <!-- to activate the test runner, add the "?test" query string parameter -->
+    <script src="js/runner.js"></script>
+  <% end %>
+</body>
+</html>
