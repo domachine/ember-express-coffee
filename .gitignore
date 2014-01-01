@@ -1,2 +1,12 @@
 /node_modules/
-/client/bower_components
+/client/bower_components/
+/client/js/
+/.tmp/
+/lib/**/*.js
+/routes/**/*.js
+/routes.js
+/app.js
+/server.js
+/public/js/
+/public/css/
+/views/index.html
