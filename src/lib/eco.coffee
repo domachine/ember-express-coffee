@@ -11,7 +11,6 @@ module.exports = (app, ext = 'html') ->
   app.set 'view engine', ext
   app.engine ".#{ext}", (path, options, callback) ->
     return Q.ninvoke(fs, 'readFile', path)
-      .then((content) ->
+      .then (content) ->
         callback null, eco.render(content.toString(), options)
-      )
       .fail callback
