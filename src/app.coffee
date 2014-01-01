@@ -1,12 +1,9 @@
 
-util = require 'util'
 path = require 'path'
 express = require 'express'
 
 eco = require './lib/eco'
 routes = require './routes'
-
-log = util.log
 
 app = module.exports = express()
 
@@ -35,5 +32,3 @@ else
 
 # Register routes.
 routes(app)
-app.listen 3000, () ->
-  log 'Listening on port 3000'
