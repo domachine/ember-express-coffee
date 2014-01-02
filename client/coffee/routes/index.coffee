@@ -1,3 +1,3 @@
 
 App.IndexRoute = Ember.Route.extend
-  model: () -> ['red', 'yellow', 'blue']
+  model: () -> this.store.find 'color'

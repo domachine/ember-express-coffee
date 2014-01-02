@@ -1,10 +1,13 @@
 
 path = require 'path'
+
 loadGruntTasks = require 'load-grunt-tasks'
 
 module.exports = (grunt) ->
   grunt.initConfig
     watch:
+      options:
+        livereload: true
       templates:
         files: [ 'client/templates/**/*.hbs' ]
         tasks: [ 'emberTemplates' ]
@@ -35,6 +38,13 @@ module.exports = (grunt) ->
         src: [ '**/*.coffee' ]
         dest: '.'
         ext: '.js'
+    connect:
+      server:
+        options:
+          port: 3000
+          livereload: true
+          middleware: (connect) ->
+            [ require('./src/app') ]
     useminPrepare:
       options:
         dest: 'public'
@@ -54,10 +64,11 @@ module.exports = (grunt) ->
       views: [ 'views/index.html' ]
       public: [ 'public/js', 'public/css' ]
       client: [ 'client/js' ]
-      server: [ 'lib', 'routes', 'app.js', 'routes.js' ]
+      server: [ 'lib', 'routes', 'app.js', 'server.js', 'routes.js' ]
 
   loadGruntTasks grunt
   grunt.registerTask 'default', [ 'coffee:client', 'emberTemplates', 'copy' ]
+  grunt.registerTask 'server', [ 'connect:server', 'watch' ]
   grunt.registerTask 'build', [
     'default'
     'coffee:server'
