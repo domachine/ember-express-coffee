@@ -9,4 +9,4 @@
 /server.js
 /public/js/
 /public/css/
-/views/index.html
+/public/*.html

@@ -15,8 +15,8 @@ module.exports = (grunt) ->
         files: [ 'client/coffee/**/*.coffee' ]
         tasks: [ 'coffee:client' ]
       html:
-        files: [ 'client/*.html' ]
-        tasks: [ 'copy:html' ]
+        files: [ 'client/*.jade' ]
+        tasks: [ 'jade:development' ]
     emberTemplates:
       options:
         templateBasePath: 'client/templates/'
@@ -38,6 +38,27 @@ module.exports = (grunt) ->
         src: [ '**/*.coffee' ]
         dest: '.'
         ext: '.js'
+    jade:
+      options:
+        pretty: true
+      development:
+        expand: true
+        cwd: 'client'
+        src: [ '*.jade' ]
+        dest: 'public'
+        ext: '.html'
+        options:
+          data:
+            env: 'development'
+      production:
+        expand: true
+        cwd: 'client'
+        src: [ '*.jade' ]
+        dest: 'public'
+        ext: '.html'
+        options:
+          data:
+            env: 'production'
     connect:
       server:
         options:
@@ -48,34 +69,35 @@ module.exports = (grunt) ->
     useminPrepare:
       options:
         dest: 'public'
-      html: 'client/index.html'
-    copy:
-      html:
-        files: [
-          expand: true
-          cwd: 'client'
-          src: '*.html'
-          dest: 'views/'
-        ]
+        root: 'client'
+      html: [ 'public/*.html' ]
     usemin:
-      html: 'views/index.html'
+      html: [ 'public/*.html' ]
     clean:
       '.tmp': [ '.tmp' ]
       views: [ 'views/index.html' ]
-      public: [ 'public/js', 'public/css' ]
+      public: [ 'public/js', 'public/css', 'public/*.html' ]
       client: [ 'client/js' ]
       server: [ 'lib', 'routes', 'app.js', 'server.js', 'routes.js' ]
 
   loadGruntTasks grunt
-  grunt.registerTask 'default', [ 'coffee:client', 'emberTemplates', 'copy' ]
-  grunt.registerTask 'server', [ 'connect:server', 'watch' ]
-  grunt.registerTask 'build', [
+  grunt.registerTask 'default', [
+    'coffee:client'
+    'emberTemplates'
+    'jade:development'
+  ]
+  grunt.registerTask 'server', [
     'default'
-    'coffee:server'
+    'connect:server'
+    'watch'
+  ]
+  grunt.registerTask 'build', [
+    'coffee'
+    'emberTemplates'
+    'jade:production'
     'useminPrepare'
     'concat'
     'uglify'
     'cssmin'
-    'copy'
     'usemin'
   ]

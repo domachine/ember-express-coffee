@@ -1,10 +1,12 @@
 
 module.exports = (app) ->
 
-  # Load all routes lazily
+  # Load all routes lazily.
   routes = [
-    require('./routes/index')
+
+    # List your routes here.
+
   ]
 
-  # Register all routes to the passed app
+  # Register all routes to the passed app.
   route(app) for route in routes
