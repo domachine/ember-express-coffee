@@ -35,7 +35,7 @@
   To run your application in `production` mode use the following:
 
     $ grunt build
-    $ npm start
+    $ NODE_ENV=production npm start
 
 ## Source structure
 
