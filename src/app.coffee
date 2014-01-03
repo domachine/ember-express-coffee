@@ -6,6 +6,8 @@ app = module.exports = express()
 
 # Insert router in middleware stack.
 app.use app.router
+
+# Mount file servers
 if app.get('env') is 'development'
 
   # Serve full client sources during development
