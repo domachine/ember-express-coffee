@@ -15,16 +15,12 @@
   ],
   "dependencies": {
     "jquery": "~2.0.3",
-    "ember": "~1.2.0",
-    "handlebars": "~1.2.0",
+    "ember": "~1",
+    "handlebars": ">= 1.0.0",
     "bootstrap": "~3.0.3",
-    "ember-data-shim": "1.0.0-beta.2"
+    "ember-data": "1.0.0-beta.4"
   },
   "devDependencies": {
     "qunit": "~1.12.0"
-  },
-  "resolutions": {
-    "handlebars": "~1.2.0",
-    "ember": "~1.2.0"
   }
 }
