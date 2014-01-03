@@ -30,13 +30,13 @@
   in your browser and start coding.  After each change the page is
   reloaded automatically due to `livereload`.
 
-## Deploy
+### Source structure
+
+  Coming soon!
+
+### Deploy
 
   To run your application in `production` mode use the following:
 
     $ grunt build
     $ NODE_ENV=production npm start
-
-## Source structure
-
-  Coming soon!
