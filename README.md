@@ -25,10 +25,10 @@
     $ bower install
     $ grunt server
 
-  This launches a `connect` instance instance and mounts the
-  application.  So all you have to do is open `http://localhost:3000`
-  in your browser and start coding.  After each change the page is
-  reloaded automatically due to `livereload`.
+  This launches a `connect` instance and mounts the application.  So
+  all you have to do is open `http://localhost:3000` in your browser
+  and start coding.  After each change the page is reloaded
+  automatically due to `livereload`.
 
 ### Source structure
 
