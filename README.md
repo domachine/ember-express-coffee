@@ -47,7 +47,6 @@
     |   |   |-- runner.css
     |   |   `-- style.css
     |   |-- index.jade
-    |   |-- sass
     |   `-- templates
     |       |-- application.hbs
     |       `-- index.hbs
@@ -59,6 +58,52 @@
     |   |-- app.coffee
     |   `-- server.coffee
     `-- views
+
+  This is the source structure layed out.  `client/` includes
+  everything which has to do with the client: stylesheets,
+  coffee-scripts and the templates used in the ember application.  The
+  server sources are located in `src/`.  Everytime you add something
+  (stylesheet, coffee-script etc.) to your application you have to
+  make sure to link it in your `index.jade` file which is the
+  entrypoint of the application and looks like this:
+
+  ```jade
+    doctype html
+    html
+      head
+        meta(charset='utf-8')
+        title Ember Starter Kit
+        if env == 'development'
+          link(rel='stylesheet'
+               href='bower_components/bootstrap/dist/css/bootstrap.css')
+        else
+          link(rel='stylesheet'
+               href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+        // build:css css/main.css
+        link(rel='stylesheet' href='css/style.css')
+        // endbuild
+      body
+        // build:js js/components.js
+        script(src='bower_components/jquery/jquery.js')
+        script(src='bower_components/handlebars/handlebars.js')
+        script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+        // endbuild
+        if env == 'development'
+          script(src='bower_components/ember/ember.js')
+          script(src='bower_components/ember-data/ember-data.js')
+        else
+          script(src='bower_components/ember/ember.min.js')
+          script(src='bower_components/ember-data/ember-data.min.js')
+        // build:js js/main.js
+        script(src='js/templates.js')
+        script(src='js/app.js')
+        script(src='js/models/color.js')
+        script(src='js/routes/index.js')
+        // endbuild
+        if env == 'development'
+          // to activate the test runner, add the "?test" query string parameter
+          script(src='js/runner.js')
+  ```
 
 ### Deploy
 
