@@ -68,41 +68,57 @@
   entrypoint of the application and looks like this:
 
   ```jade
-    doctype html
-    html
-      head
-        meta(charset='utf-8')
-        title Ember Starter Kit
-        if env == 'development'
-          link(rel='stylesheet'
-               href='bower_components/bootstrap/dist/css/bootstrap.css')
-        else
-          link(rel='stylesheet'
-               href='bower_components/bootstrap/dist/css/bootstrap.min.css')
-        // build:css css/main.css
-        link(rel='stylesheet' href='css/style.css')
-        // endbuild
-      body
-        // build:js js/components.js
-        script(src='bower_components/jquery/jquery.js')
-        script(src='bower_components/handlebars/handlebars.js')
-        script(src='bower_components/bootstrap/dist/js/bootstrap.js')
-        // endbuild
-        if env == 'development'
-          script(src='bower_components/ember/ember.js')
-          script(src='bower_components/ember-data/ember-data.js')
-        else
-          script(src='bower_components/ember/ember.min.js')
-          script(src='bower_components/ember-data/ember-data.min.js')
-        // build:js js/main.js
-        script(src='js/templates.js')
-        script(src='js/app.js')
-        script(src='js/models/color.js')
-        script(src='js/routes/index.js')
-        // endbuild
-        if env == 'development'
-          // to activate the test runner, add the "?test" query string parameter
-          script(src='js/runner.js')
+  doctype html
+  html
+    head
+      meta(charset='utf-8')
+      title Ember Starter Kit
+      if env == 'development'
+        link(rel='stylesheet'
+             href='bower_components/bootstrap/dist/css/bootstrap.css')
+      else
+        link(rel='stylesheet'
+             href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+      // build:css css/main.css
+      link(rel='stylesheet' href='css/style.css')
+      // endbuild
+    body
+      // build:js js/components.js
+      script(src='bower_components/jquery/jquery.js')
+      script(src='bower_components/handlebars/handlebars.js')
+      script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+      // endbuild
+      if env == 'development'
+        script(src='bower_components/ember/ember.js')
+        script(src='bower_components/ember-data/ember-data.js')
+      else
+        script(src='bower_components/ember/ember.min.js')
+        script(src='bower_components/ember-data/ember-data.min.js')
+      // build:js js/main.js
+      script(src='js/templates.js')
+      script(src='js/app.js')
+      script(src='js/models/color.js')
+      script(src='js/routes/index.js')
+      // endbuild
+      if env == 'development'
+        // to activate the test runner, add the "?test" query string parameter
+        script(src='js/runner.js')
+  ```
+
+  For example to add a new model called `Customer` you would write
+  your coffee-script and add the corresponding javascript file to the
+  `js` block like this:
+
+  ```jade
+      // build:js js/main.js
+      script(src='js/templates.js')
+      script(src='js/app.js')
+      script(src='js/models/color.js')
+
+      // The new model
+      script(src='js/models/customer.js')
+      script(src='js/routes/index.js')
+      // endbuild
   ```
 
 ### Deploy
@@ -111,3 +127,9 @@
 
     $ grunt build
     $ NODE_ENV=production npm start
+
+## Contribute
+
+  This should be enough to get started.  Feel free to tweak and refine
+  the `Grunfile.coffee` or anything else in this scaffold and then let
+  me know about it via a pull request or an issue.
