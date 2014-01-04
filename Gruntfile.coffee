@@ -17,6 +17,8 @@ module.exports = (grunt) ->
       html:
         files: [ 'client/*.jade' ]
         tasks: [ 'jade:development' ]
+      css:
+        files: [ 'client/css/**/*.css' ]
     emberTemplates:
       options:
         templateBasePath: 'client/templates/'
