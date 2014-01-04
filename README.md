@@ -32,7 +32,33 @@
 
 ### Source structure
 
-  Coming soon!
+    .
+    |-- bower.json
+    |-- client
+    |   |-- coffee
+    |   |   |-- app.coffee
+    |   |   |-- models
+    |   |   |   `-- color.coffee
+    |   |   |-- routes
+    |   |   |   `-- index.coffee
+    |   |   |-- runner.coffee
+    |   |   `-- tests.coffee
+    |   |-- css
+    |   |   |-- runner.css
+    |   |   `-- style.css
+    |   |-- index.jade
+    |   |-- sass
+    |   `-- templates
+    |       |-- application.hbs
+    |       `-- index.hbs
+    |-- Gruntfile.coffee
+    |-- package.json
+    |-- public
+    |-- README.md
+    |-- src
+    |   |-- app.coffee
+    |   `-- server.coffee
+    `-- views
 
 ### Deploy
 
