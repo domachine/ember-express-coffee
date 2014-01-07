@@ -34,12 +34,6 @@ module.exports = (grunt) ->
         src: [ '**/*.coffee' ]
         dest: 'client/js/'
         ext: '.js'
-      server:
-        expand: true
-        cwd: 'src'
-        src: [ '**/*.coffee' ]
-        dest: '.'
-        ext: '.js'
     jade:
       options:
         pretty: true
@@ -67,7 +61,7 @@ module.exports = (grunt) ->
           port: 3000
           livereload: true
           middleware: (connect) ->
-            [ require('./src/app') ]
+            [ require('./app') ]
     useminPrepare:
       options:
         dest: 'public'
@@ -80,7 +74,6 @@ module.exports = (grunt) ->
       views: [ 'views/index.html' ]
       public: [ 'public/js', 'public/css', 'public/*.html' ]
       client: [ 'client/js' ]
-      server: [ 'lib', 'routes', 'app.js', 'server.js', 'routes.js' ]
 
   loadGruntTasks grunt
   grunt.registerTask 'default', [
